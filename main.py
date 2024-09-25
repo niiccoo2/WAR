@@ -1,7 +1,7 @@
 import random
 import os
 
-ace="""
+ace = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | A             |
 |               |
@@ -11,7 +11,7 @@ ace="""
 |             A |
 ◟_______________◞
 """
-king="""
+king = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | K             |
 |      ^^^      |
@@ -21,7 +21,7 @@ king="""
 |             K |
 ◟_______________◞
 """
-queen="""
+queen = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | Q             |
 |      /^\      |
@@ -31,7 +31,7 @@ queen="""
 |             Q |
 ◟_______________◞
 """
-jack="""
+jack = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | J             |
 |       _       |
@@ -41,7 +41,7 @@ jack="""
 |             J |
 ◟_______________◞
 """
-c10="""
+c10 = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | 10            |
 |    ♥     ♥    |
@@ -51,7 +51,7 @@ c10="""
 |            10 |
 ◟_______________◞
 """
-c9="""
+c9 = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | 9             |
 |    ♥     ♥    |
@@ -61,7 +61,7 @@ c9="""
 |            9  |
 ◟_______________◞
 """
-c8="""
+c8 = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | 8             |
 |    ♥          |
@@ -71,7 +71,7 @@ c8="""
 |            8  |
 ◟_______________◞
 """
-c7="""
+c7 = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | 7             |
 |    ♥     ♥    |
@@ -81,7 +81,7 @@ c7="""
 |            7  |
 ◟_______________◞
 """
-c6="""
+c6 = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | 6             |
 |    ♥     ♥    |
@@ -91,7 +91,7 @@ c6="""
 |            6  |
 ◟_______________◞
 """
-c5="""
+c5 = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | 5             |
 |    ♥     ♥    |
@@ -101,7 +101,7 @@ c5="""
 |            5  |
 ◟_______________◞
 """
-c4="""
+c4 = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | 4             |
 |    ♥     ♥    |
@@ -111,7 +111,7 @@ c4="""
 |            4  |
 ◟_______________◞
 """
-c3="""
+c3 = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | 3             |
 |       ♥       |
@@ -121,7 +121,7 @@ c3="""
 |            3  |
 ◟_______________◞
 """
-c2="""
+c2 = """
 ◜¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯◝
 | 2             |
 |       ♥       |
@@ -132,49 +132,58 @@ c2="""
 ◟_______________◞
 """
 
-BLACK  = "\033[30m"
-RED    = "\033[31m"
-GREEN  = "\033[32m"
+BLACK = "\033[30m"
+RED = "\033[31m"
+GREEN = "\033[32m"
 YELLOW = "\033[33m"
-BLUE   = "\033[34m"
+BLUE = "\033[34m"
 PURPLE = "\033[35m"
-CYAN   = "\033[36m"
-WHITE  = "\033[37m"
-RESET  = "\033[0m"
+CYAN = "\033[36m"
+WHITE = "\033[37m"
+RESET = "\033[0m"
 
-cards=[ace,ace,ace,ace,c2,c2,c2,c2,c3,c3,c3,c3,c4,c5,c6,c7,c8,c9,c10,jack,queen,king]
-card_len=len(cards)-1
-bot_cards=[]
-player_cards=[]
-player_card="NO_CARD"
-bot_card="NO_CARD"
+cards = [ace, ace, ace, ace, c2, c2, c2, c2, c3, c3, c3,
+         c3, c4, c4, c4, c4, c5, c5, c5, c5, c6, c6, c6,
+         c6, c7, c7, c7, c7, c8, c8, c8, c8, c9, c9, c9,
+         c9, c10, c10, c10, c10, jack, jack, jack, jack,
+         queen, queen, queen, queen, king, king, king, king]
+card_len = len(cards)-1
+bot_cards = []
+player_cards = []
+player_card = "NO_CARD"
+bot_card = "NO_CARD"
+
 
 def draw_player():
-  global cards
-  return cards[random.randint(min(cards), max(cards))]
+    global cards
+    return cards[random.randint(min(cards), max(cards))]
+
 
 def draw_bot():
-  global cards
-  return cards[random.randint(min(cards), max(cards))]
+    global cards
+    return cards[random.randint(min(cards), max(cards))]
+
 
 while True:
-  player_card=draw_player()
-  bot_card=draw_bot()
+    print(draw_player())
+    player_card = draw_player()
+    bot_card = draw_bot()
+    # ERROR here
 
-  if bot_card>player_card:
-    print(RED+"Bot Wins"+RESET)
-    cards.remove(player_card)
-    cards.remove(bot_card)
-    bot_cards.append(player_card)
-    bot_cards.append(bot_card)
-  else:
-    print(GREEN+"Player Wins"+RESET)
-    cards.remove(player_card)
-    cards.remove(bot_card)
-    player_cards.append(player_card)
-    player_cards.append(bot_card)
-  print(RED+bot_card+RESET)
-  print(player_card)
+    if bot_card > player_card:
+        print(RED+"Bot Wins"+RESET)
+        cards.remove(player_card)
+        cards.remove(bot_card)
+        bot_cards.append(player_card)
+        bot_cards.append(bot_card)
+    else:
+        print(GREEN+"Player Wins"+RESET)
+        cards.remove(player_card)
+        cards.remove(bot_card)
+        player_cards.append(player_card)
+        player_cards.append(bot_card)
+    print(RED+bot_card+RESET)
+    print(player_card)
 
-  wait=input("Press enter to continue")
-  os.system('clear')
+    wait = input("Press enter to continue")
+    os.system('clear')
